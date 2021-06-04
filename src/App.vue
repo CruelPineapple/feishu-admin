@@ -42,11 +42,13 @@
       </el-menu>
     </div>
     <place v-show="currentShow == 2"></place>
+    <found v-show="currentShow == '1-2'"></found>
   </div>
 </template>
 
 <script>
 import place from "./components/place";
+import found from "./components/found";
 
 export default {
   mounted() {
@@ -54,7 +56,7 @@ export default {
     // this.transferPlace(this.data);
   },
   name: "App",
-  components: { place },
+  components: { place, found },
   data() {
     return {
       activeIndex: "1",
