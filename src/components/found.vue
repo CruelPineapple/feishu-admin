@@ -2,7 +2,9 @@
   <div class="found">found</div>
 </template>
 <script>
-export default {};
+export default {
+    name:"found"
+};
 </script>
 <style scoped>
 #found {
