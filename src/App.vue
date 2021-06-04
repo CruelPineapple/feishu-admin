@@ -117,9 +117,7 @@ export default {
     // },
     handleSelect(key, keyPath) {
       console.log(key, keyPath);
-      if (key == 2) {
-        this.currentShow = 2;
-      }
+      this.currentShow = key;
     },
     handleOpen(key, keyPath) {
       console.log(key, keyPath);
