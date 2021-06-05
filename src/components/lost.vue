@@ -1,11 +1,9 @@
 <template>
-  <div class="lost">
-    lost
-  </div>
+  <div class="lost">lost</div>
 </template>
 <script>
 export default {
-    name:"lost"
+  name: "lost",
 };
 </script>
 <style scoped>

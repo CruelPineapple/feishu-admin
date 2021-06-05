@@ -43,8 +43,8 @@
     </div>
     <place v-show="currentShow == 2"></place>
     <found v-show="currentShow == '1-2'"></found>
-    <lost v-show="currentShow=='1-1'"></lost>
-    <match v-show="currentShow=='1-3'"></match>
+    <lost v-show="currentShow == '1-1'"></lost>
+    <match v-show="currentShow == '1-3'"></match>
   </div>
 </template>
 
@@ -52,7 +52,7 @@
 import place from "./components/place";
 import found from "./components/found";
 import lost from "./components/lost";
-import match from "./components/match"
+import match from "./components/match";
 
 export default {
   mounted() {
@@ -60,7 +60,7 @@ export default {
     // this.transferPlace(this.data);
   },
   name: "App",
-  components: { place, found,lost,match },
+  components: { place, found, lost, match },
   data() {
     return {
       activeIndex: "1",

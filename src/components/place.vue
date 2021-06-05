@@ -46,7 +46,17 @@
 <script>
 export default {
   name: "place",
-  mounted() {},
+  mounted() {
+    this.$axios({
+      method: "get",
+      url: "https://www.fengzigeng.com/api/management/place",
+      data: {
+        campus_id: 1,
+      },
+    }).then((res) => {
+      this.tableData = res.data.data;
+    });
+  },
   data() {
     return {
       radio: "1",
@@ -621,6 +631,16 @@ export default {
   methods: {
     schoolRadioChange: function () {
       console.log(this.radio);
+      this.$axios({
+        method: "get",
+        url: "https://www.fengzigeng.com/api/management/place",
+        data: {
+          campus_id: this.radio,
+        },
+      }).then((res) => {
+        console.log(res);
+        this.tableData = res.data.data;
+      });
     },
     handleEdit(index, row) {
       console.log(index, row);

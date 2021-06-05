@@ -3,7 +3,7 @@
 </template>
 <script>
 export default {
-    name:"found"
+  name: "found",
 };
 </script>
 <style scoped>

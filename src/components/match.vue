@@ -1,11 +1,9 @@
 <template>
-  <div class="match">
-    match
-  </div>
+  <div class="match">match</div>
 </template>
 <script>
 export default {
-    name:"match"
+  name: "match",
 };
 </script>
 <style scoped>
