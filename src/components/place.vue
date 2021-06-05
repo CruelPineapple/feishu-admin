@@ -47,15 +47,22 @@
 export default {
   name: "place",
   mounted() {
-    this.$axios({
-      method: "get",
-      url: "https://www.fengzigeng.com/api/management/place",
-      data: {
-        campus_id: 1,
-      },
-    }).then((res) => {
-      this.tableData = res.data.data;
-    });
+    this.$axios
+      .get("https://www.fengzigeng.com/api/management/place", {
+        params: {
+          campus_id: 1,
+        },
+      })
+      .then((res) => {
+        if (res.data.code == 200) {
+          this.tableData = res.data.data;
+        } else {
+          this.$notify.error({
+            title: "错误" + res.data.code,
+            message: res.data.msg,
+          });
+        }
+      });
   },
   data() {
     return {
@@ -631,16 +638,22 @@ export default {
   methods: {
     schoolRadioChange: function () {
       console.log(this.radio);
-      this.$axios({
-        method: "get",
-        url: "https://www.fengzigeng.com/api/management/place",
-        data: {
-          campus_id: this.radio,
-        },
-      }).then((res) => {
-        console.log(res);
-        this.tableData = res.data.data;
-      });
+      this.$axios
+        .get("https://www.fengzigeng.com/api/management/place", {
+          params: {
+            campus_id: this.radio,
+          },
+        })
+        .then((res) => {
+          if (res.data.code == 200) {
+            this.tableData = res.data.data;
+          } else {
+            this.$notify.error({
+              title: "错误" + res.data.code,
+              message: res.data.msg,
+            });
+          }
+        });
     },
     handleEdit(index, row) {
       console.log(index, row);

@@ -56,8 +56,7 @@ import match from "./components/match";
 
 export default {
   mounted() {
-    // console.log(this.data[0].Campus);
-    // this.transferPlace(this.data);
+
   },
   name: "App",
   components: { place, found, lost, match },
