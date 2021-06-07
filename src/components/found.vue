@@ -1,6 +1,6 @@
 <template>
   <div class="found">
-    <el-table :data="tableData" style="width: 100%">
+    <el-table :data="tableData" stripe style="width: 100%">
       <el-table-column type="expand">
         <template slot-scope="props">
           <el-form label-position="left" inline class="demo-table-expand">
@@ -57,7 +57,6 @@ export default {
   },
   methods: {
     getList: function () {
-      console.log(this.radio);
       this.$axios
         .get("https://www.fengzigeng.com/api/management/found", {
 
