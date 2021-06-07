@@ -19,7 +19,7 @@
             <el-form-item label="图片">
               <el-image
                 style="width: 150px; height: 150px"
-                :fit="contain"
+                fit="cover"
                 :src="props.row.Image"
               ></el-image>
             </el-form-item>
