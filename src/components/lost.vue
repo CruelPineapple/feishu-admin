@@ -4,7 +4,7 @@
       <el-table-column type="expand">
         <template slot-scope="props">
           <el-form label-position="left" inline class="demo-table-expand">
-            <el-form-item label="学号/编号">
+            <el-form-item label="学号/工号">
               <span>{{ props.row.Student_Teacher_Id }}</span>
             </el-form-item>
             <el-form-item label="手机号">

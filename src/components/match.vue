@@ -4,10 +4,10 @@
       <el-table-column type="expand">
         <template slot-scope="props">
           <el-form label-position="left" inline class="demo-table-expand">
-            <el-form-item label="失主学号/编号">
+            <el-form-item label="失主学号/工号">
               <span>{{ props.row.LosterId }}</span>
             </el-form-item>
-            <el-form-item label="拾到者学号/编号">
+            <el-form-item label="拾到者学号/工号">
               <span>{{ props.row.FounderId }}</span>
             </el-form-item>
             <el-form-item label="失主手机号">
