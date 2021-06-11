@@ -13,7 +13,7 @@
       >
         <el-submenu index="1">
           <template slot="title">
-            <i class="el-icon-location"></i>
+          <i class="el-icon-menu"></i>
             <span>物品列表</span>
           </template>
           <el-menu-item-group>
@@ -27,10 +27,21 @@
             <el-menu-item index="1-4-1">选项1</el-menu-item>
           </el-submenu> -->
         </el-submenu>
-        <el-menu-item index="2">
-          <i class="el-icon-menu"></i>
-          <span slot="title">地点管理</span>
-        </el-menu-item>
+        <el-submenu index="2">
+          <template slot="title">
+            <i class="el-icon-location"></i>
+            <span>地点管理</span>
+          </template>
+          <el-menu-item-group>
+            <el-menu-item index="2-1">
+              <span slot="title">地点列表</span>
+            </el-menu-item>
+            <el-menu-item index="2-2">
+              <span slot="title">地点修改</span>
+            </el-menu-item>
+          </el-menu-item-group>
+        </el-submenu>
+
         <el-menu-item index="3">
           <i class="el-icon-document"></i>
           <span slot="title">人员管理</span>
@@ -41,7 +52,8 @@
         </el-menu-item>
       </el-menu>
     </div>
-    <place v-show="currentShow == 2"></place>
+    <place v-show="currentShow == '2-1'"></place>
+    <edit v-show="currentShow=='2-2'"></edit>
     <found v-show="currentShow == '1-2'"></found>
     <lost v-show="currentShow == '1-1'"></lost>
     <match v-show="currentShow == '1-3'"></match>
@@ -53,13 +65,14 @@ import place from "./components/place";
 import found from "./components/found";
 import lost from "./components/lost";
 import match from "./components/match";
+import edit from "./components/edit"
 
 export default {
   mounted() {
 
   },
   name: "App",
-  components: { place, found, lost, match },
+  components: { place, found, lost, match, edit },
   data() {
     return {
       activeIndex: "1",
