@@ -75,6 +75,7 @@ export default {
   mounted() {
     this.$axios.get("https://www.fengzigeng.com/api/management/me").then((res)=>{
       if(res.data.code==200){
+        console.log(res.data);
         this.userName=res.data.name;
         this.avatarUrl=res.data.avatar;
       }
