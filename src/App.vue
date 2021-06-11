@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <div class="bar">Lost & Found 失物招领后台管理系统<div class="user"><span>欢迎，{{userName}}</span><img :src="avatarUrl" alt=""></div></div>
+    <div >
     <div class="menu-container">
       <el-menu
         default-active="2"
@@ -57,6 +59,8 @@
     <found v-show="currentShow == '1-2'"></found>
     <lost v-show="currentShow == '1-1'"></lost>
     <match v-show="currentShow == '1-3'"></match>
+    </div>
+
   </div>
 </template>
 
@@ -69,15 +73,22 @@ import edit from "./components/edit"
 
 export default {
   mounted() {
-
+    this.$axios.get("https://www.fengzigeng.com/api/management/me").then((res)=>{
+      if(res.data.code==200){
+        this.userName=res.data.name;
+        this.avatarUrl=res.data.avatar;
+      }
+    })
   },
   name: "App",
   components: { place, found, lost, match, edit },
   data() {
     return {
+      userName:"test",
+      avatarUrl:"",
       activeIndex: "1",
       activeIndex2: "1",
-      currentShow: 2,
+      currentShow: '2-1',
     };
   },
   methods: {
@@ -154,14 +165,41 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  height: 100%;
+}
+.bar{
+  height: 60px;
+  color: white;
+  width: 100%;
+  margin:0 auto;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  line-height: 60px;
+  z-index: 10000;
+  background-color: rgb(84, 92, 100);
+}
+.user{
+  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+}
+.user > span{
+  margin-right: 10px;
+}
+.user > img{
+  float: right;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
 }
 html {
-  height: 100%;
+
 }
 body {
   margin: 0;
-  height: 100%;
+
 }
 
 .el-menu-vertical-demo {
