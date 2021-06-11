@@ -67,9 +67,7 @@ export default {
   methods: {
     getList: function () {
       this.$axios
-        .get("https://www.fengzigeng.com/api/management/match", {
-
-        })
+        .get("https://www.fengzigeng.com/api/management/match", {})
         .then((res) => {
           if (res.data.code == 200) {
             this.tableData = res.data.data;
