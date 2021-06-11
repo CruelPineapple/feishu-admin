@@ -1,5 +1,17 @@
 <template>
   <div id="place">
+    <el-dialog :show-close="false" title="提示" :visible="dialogVisible" width="30%">
+      <span>请选择删除方式</span>
+      <span slot="footer" class="dialog-footer">
+        <el-button type="danger" @click="subDel(delBuff)"
+          >删除子地点</el-button
+        >
+        <el-button type="danger" @click="mainDel(delBuff)"
+          >删除父地点</el-button
+        >
+        <el-button @click="dialogVisible = false">取消</el-button>
+      </span>
+    </el-dialog>
     <div class="school-picker">
       <el-radio @change="schoolRadioChange" v-model="radio" label="1"
         >沙河校区</el-radio
@@ -9,7 +21,7 @@
       >
     </div>
     <div class="table-container">
-      <el-table :data="tableData" style="width: 100%">
+      <el-table :data="tableData" stripe style="width: 100%">
         <el-table-column label="校区" width="300">
           <template slot-scope="scope">
             <span style="margin-left: 10px">{{ scope.row.Campus }}</span>
@@ -68,6 +80,8 @@ export default {
   data() {
     return {
       radio: "1",
+      dialogVisible: false,
+      delBuff:undefined,
       tableData: [
         {
           Campus: "清水河校区",
@@ -650,9 +664,9 @@ export default {
             this.tableData = res.data.data;
           } else {
             this.$notify.error({
-            title: "错误",
-            dangerouslyUseHTMLString: true,
-            message: `<a href= "https://www.fengzigeng.com/api/weblogin">点此重新登录</a>`,
+              title: "错误",
+              dangerouslyUseHTMLString: true,
+              message: `<a href= "https://www.fengzigeng.com/api/weblogin">点此重新登录</a>`,
             });
           }
         });
@@ -662,6 +676,48 @@ export default {
     },
     handleDelete(index, row) {
       console.log(index, row);
+      this.dialogVisible = true;
+      this.delBuff=row;
+    },
+    subDel: function (row) {
+      this.$axios
+        .get("https://www.fengzigeng.com/api/management/deletesubplace", {
+          params: {
+            key: row.Key,
+          },
+        })
+        .then((res) => {
+          if (res.data.code == 200) {
+            this.$message("删除成功！");
+            this.dialogVisible = false;
+            this.schoolRadioChange();
+          } else {
+            this.$notify({
+              title: "删除失败",
+              message: res.data.msg,
+            });
+          }
+        });
+    },
+    mainDel: function (row) {
+      this.$axios
+        .get("https://www.fengzigeng.com/api/management/deleteplace", {
+          params: {
+            big_key: row.BigKey,
+          },
+        })
+        .then((res) => {
+          if (res.data.code == 200) {
+            this.$message("删除成功！");
+            this.dialogVisible = false;
+            this.schoolRadioChange();
+          } else {
+            this.$notify({
+              title: "删除失败",
+              message: res.data.msg,
+            });
+          }
+        });
     },
   },
 };
