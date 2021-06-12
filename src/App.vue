@@ -50,10 +50,21 @@
             </el-menu-item-group>
           </el-submenu>
 
-          <el-menu-item index="3">
+
+          <el-submenu index="3">
+            <template slot="title">
             <i class="el-icon-document"></i>
             <span slot="title">人员管理</span>
-          </el-menu-item>
+            </template>    
+            <el-menu-item-group>
+              <el-menu-item index="3-1">
+                <span slot="title">管理员列表</span>
+              </el-menu-item>
+              <el-menu-item index="3-2">
+                <span slot="title">权限修改</span>
+              </el-menu-item>
+            </el-menu-item-group>                    
+          </el-submenu>
 
           <el-submenu index="4">
             <template slot="title">
@@ -71,7 +82,8 @@
           </el-submenu>
         </el-menu>
       </div>
-      <auth v-if="currentShow=='3'"></auth>
+      <setauth v-if="currentShow=='3-2'"></setauth>
+      <auth v-if="currentShow=='3-1'"></auth>
       <itemadd v-if="currentShow=='4-2'"></itemadd>
       <itemlist v-if="currentShow=='4-1'"></itemlist>
       <place v-if="currentShow == '2-1'"></place>
@@ -92,6 +104,7 @@ import edit from "./components/edit";
 import itemlist from "./components/itemlist";
 import itemadd from "./components/itemadd";
 import auth from "./components/auth"
+import setauth from "./components/setauth"
 
 export default {
   mounted() {
@@ -106,7 +119,7 @@ export default {
       });
   },
   name: "App",
-  components: { place, found, lost, match, edit,itemlist,itemadd,auth },
+  components: { place, found, lost, match, edit,itemlist,itemadd,auth,setauth },
   data() {
     return {
       userName: "",
