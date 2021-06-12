@@ -54,72 +54,7 @@ export default {
       subPlace: "",
       pickerValue: [],
       subPlaceKey: {},
-      pickerData: [
-        {
-          value: "0",
-          label: "清水河校区",
-          children: [
-            {
-              label: "教学楼",
-              value: 1,
-            },
-            {
-              label: "硕丰苑",
-              value: 2,
-            },
-            {
-              label: "学知苑",
-              value: 3,
-            },
-            {
-              label: "博翰苑",
-              value: 4,
-            },
-            {
-              label: "留学生宿舍区",
-              value: 5,
-            },
-            {
-              label: "餐厅",
-              value: 6,
-            },
-            {
-              label: "其他",
-              value: 7,
-            },
-          ],
-        },
-        {
-          value: "1",
-          label: "沙河校区",
-          children: [
-            {
-              label: "教学楼",
-              value: 8,
-            },
-            {
-              label: "宿舍区",
-              value: 9,
-            },
-            {
-              label: "食堂",
-              value: 10,
-            },
-            {
-              label: "运动场所",
-              value: 11,
-            },
-            {
-              label: "其它",
-              value: 12,
-            },
-            {
-              label: "测试特殊特森的天涯翠凤",
-              value: 15,
-            },
-          ],
-        },
-      ],
+      pickerData: [],
     };
   },
   methods: {
