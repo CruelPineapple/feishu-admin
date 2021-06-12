@@ -71,6 +71,7 @@
           </el-submenu>
         </el-menu>
       </div>
+      <itemadd v-show="currentShow=='4-2'"></itemadd>
       <itemlist v-show="currentShow=='4-1'"></itemlist>
       <place v-show="currentShow == '2-1'"></place>
       <edit v-show="currentShow == '2-2'"></edit>
@@ -88,7 +89,7 @@ import lost from "./components/lost";
 import match from "./components/match";
 import edit from "./components/edit";
 import itemlist from "./components/itemlist";
-
+import itemadd from "./components/itemadd";
 
 export default {
   mounted() {
@@ -103,7 +104,7 @@ export default {
       });
   },
   name: "App",
-  components: { place, found, lost, match, edit,itemlist },
+  components: { place, found, lost, match, edit,itemlist,itemadd },
   data() {
     return {
       userName: "",
