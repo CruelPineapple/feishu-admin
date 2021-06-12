@@ -8,9 +8,9 @@
     >
       <span>请选择删除方式</span>
       <span slot="footer" class="dialog-footer">
-        <el-button type="danger" @click="subDel(delBuff)">删除子地点</el-button>
+        <el-button type="danger" @click="subDel(delBuff)">删除物品</el-button>
         <el-button type="danger" @click="mainDel(delBuff)"
-          >删除父地点</el-button
+          >删除物品种类</el-button
         >
         <el-button @click="dialogVisible = false">取消</el-button>
       </span>
