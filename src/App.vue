@@ -71,13 +71,13 @@
           </el-submenu>
         </el-menu>
       </div>
-      <itemadd v-show="currentShow=='4-2'"></itemadd>
-      <itemlist v-show="currentShow=='4-1'"></itemlist>
-      <place v-show="currentShow == '2-1'"></place>
-      <edit v-show="currentShow == '2-2'"></edit>
-      <found v-show="currentShow == '1-2'"></found>
-      <lost v-show="currentShow == '1-1'"></lost>
-      <match v-show="currentShow == '1-3'"></match>
+      <itemadd v-if="currentShow=='4-2'"></itemadd>
+      <itemlist v-if="currentShow=='4-1'"></itemlist>
+      <place v-if="currentShow == '2-1'"></place>
+      <edit v-if="currentShow == '2-2'"></edit>
+      <found v-if="currentShow == '1-2'"></found>
+      <lost v-if="currentShow == '1-1'"></lost>
+      <match v-if="currentShow == '1-3'"></match>
     </div>
   </div>
 </template>
