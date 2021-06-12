@@ -1,66 +1,83 @@
 <template>
   <div id="app">
-    <div class="bar">Lost & Found 失物招领后台管理系统<div class="user"><span>欢迎，{{userName}}</span><img :src="avatarUrl" alt=""></div></div>
-    <div >
-    <div class="menu-container">
-      <el-menu
-        default-active="2"
-        class="el-menu-vertical-demo"
-        @select="handleSelect"
-        @open="handleOpen"
-        @close="handleClose"
-        background-color="#545c64"
-        text-color="#fff"
-        active-text-color="#ffd04b"
-      >
-        <el-submenu index="1">
-          <template slot="title">
-          <i class="el-icon-menu"></i>
-            <span>物品列表</span>
-          </template>
-          <el-menu-item-group>
-            <!-- <template slot="title">分组一</template> -->
-            <el-menu-item index="1-1">失物列表</el-menu-item>
-            <el-menu-item index="1-2">招领列表</el-menu-item>
-            <el-menu-item index="1-3">已认领列表</el-menu-item>
-          </el-menu-item-group>
-          <!-- <el-submenu index="1-4">
+    <div class="bar">
+      Lost & Found 失物招领后台管理系统
+      <div class="user">
+        <span>欢迎，{{ userName }}</span
+        ><img :src="avatarUrl" alt="" />
+      </div>
+    </div>
+    <div>
+      <div class="menu-container">
+        <el-menu
+          default-active="2"
+          class="el-menu-vertical-demo"
+          @select="handleSelect"
+          @open="handleOpen"
+          @close="handleClose"
+          background-color="#545c64"
+          text-color="#fff"
+          active-text-color="#ffd04b"
+        >
+          <el-submenu index="1">
+            <template slot="title">
+              <i class="el-icon-menu"></i>
+              <span>事物列表</span>
+            </template>
+            <el-menu-item-group>
+              <!-- <template slot="title">分组一</template> -->
+              <el-menu-item index="1-1">失物列表</el-menu-item>
+              <el-menu-item index="1-2">招领列表</el-menu-item>
+              <el-menu-item index="1-3">已认领列表</el-menu-item>
+            </el-menu-item-group>
+            <!-- <el-submenu index="1-4">
             <template slot="title">选项4</template>
             <el-menu-item index="1-4-1">选项1</el-menu-item>
           </el-submenu> -->
-        </el-submenu>
-        <el-submenu index="2">
-          <template slot="title">
-            <i class="el-icon-location"></i>
-            <span>地点管理</span>
-          </template>
-          <el-menu-item-group>
-            <el-menu-item index="2-1">
-              <span slot="title">地点列表</span>
-            </el-menu-item>
-            <el-menu-item index="2-2">
-              <span slot="title">地点修改</span>
-            </el-menu-item>
-          </el-menu-item-group>
-        </el-submenu>
+          </el-submenu>
+          <el-submenu index="2">
+            <template slot="title">
+              <i class="el-icon-location"></i>
+              <span>地点管理</span>
+            </template>
+            <el-menu-item-group>
+              <el-menu-item index="2-1">
+                <span slot="title">地点列表</span>
+              </el-menu-item>
+              <el-menu-item index="2-2">
+                <span slot="title">地点修改</span>
+              </el-menu-item>
+            </el-menu-item-group>
+          </el-submenu>
 
-        <el-menu-item index="3">
-          <i class="el-icon-document"></i>
-          <span slot="title">人员管理</span>
-        </el-menu-item>
-        <el-menu-item index="4">
-          <i class="el-icon-setting"></i>
-          <span slot="title">导航四</span>
-        </el-menu-item>
-      </el-menu>
-    </div>
-    <place v-show="currentShow == '2-1'"></place>
-    <edit v-show="currentShow=='2-2'"></edit>
-    <found v-show="currentShow == '1-2'"></found>
-    <lost v-show="currentShow == '1-1'"></lost>
-    <match v-show="currentShow == '1-3'"></match>
-    </div>
+          <el-menu-item index="3">
+            <i class="el-icon-document"></i>
+            <span slot="title">人员管理</span>
+          </el-menu-item>
 
+          <el-submenu index="4">
+            <template slot="title">
+              <i class="el-icon-setting"></i>
+              <span slot="title">设置物品类型</span>
+            </template>
+            <el-menu-item-group>
+              <el-menu-item index="4-1">
+                <span slot="title">所有类型</span>
+              </el-menu-item>
+              <el-menu-item index="4-2">
+                <span slot="title">增加类型</span>
+              </el-menu-item>
+            </el-menu-item-group>
+          </el-submenu>
+        </el-menu>
+      </div>
+      <itemlist v-show="currentShow=='4-1'"></itemlist>
+      <place v-show="currentShow == '2-1'"></place>
+      <edit v-show="currentShow == '2-2'"></edit>
+      <found v-show="currentShow == '1-2'"></found>
+      <lost v-show="currentShow == '1-1'"></lost>
+      <match v-show="currentShow == '1-3'"></match>
+    </div>
   </div>
 </template>
 
@@ -69,27 +86,31 @@ import place from "./components/place";
 import found from "./components/found";
 import lost from "./components/lost";
 import match from "./components/match";
-import edit from "./components/edit"
+import edit from "./components/edit";
+import itemlist from "./components/itemlist";
+
 
 export default {
   mounted() {
-    this.$axios.get("https://www.fengzigeng.com/api/management/me").then((res)=>{
-      if(res.data.code==200){
-        console.log(res.data);
-        this.userName=res.data.name;
-        this.avatarUrl=res.data.avatar;
-      }
-    })
+    this.$axios
+      .get("https://www.fengzigeng.com/api/management/me")
+      .then((res) => {
+        if (res.data.code == 200) {
+          console.log(res.data);
+          this.userName = res.data.name;
+          this.avatarUrl = res.data.avatar;
+        }
+      });
   },
   name: "App",
-  components: { place, found, lost, match, edit },
+  components: { place, found, lost, match, edit,itemlist },
   data() {
     return {
-      userName:"test",
-      avatarUrl:"",
+      userName: "",
+      avatarUrl: "",
       activeIndex: "1",
       activeIndex2: "1",
-      currentShow: '2-1',
+      currentShow: "2-1",
     };
   },
   methods: {
@@ -167,11 +188,11 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
-.bar{
+.bar {
   height: 60px;
   color: white;
   width: 100%;
-  margin:0 auto;
+  margin: 0 auto;
   position: -webkit-sticky;
   position: sticky;
   top: 0px;
@@ -179,28 +200,26 @@ export default {
   z-index: 10000;
   background-color: rgb(84, 92, 100);
 }
-.user{
+.user {
   float: right;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-right: 20px;
 }
-.user > span{
+.user > span {
   margin-right: 10px;
 }
-.user > img{
+.user > img {
   float: right;
   width: 40px;
   height: 40px;
   border-radius: 50%;
 }
 html {
-
 }
 body {
   margin: 0;
-
 }
 
 .el-menu-vertical-demo {
