@@ -1,10 +1,10 @@
 <template>
   <div id="auth">
     <div class="auth-list">
-      <div class="title" style="margin-top:0px">
+      <!-- <div class="title" style="margin-top:0px">
         <p>管理员列表</p>
         <el-button @click="getList()" class="btn">刷新</el-button>
-      </div>
+      </div> -->
       
       <el-table :data="tableData" stripe style="width: 100%">
         <el-table-column prop="OpenId" label="OpenId" width="300"></el-table-column>
