@@ -15,7 +15,7 @@
     ></el-input>
     <el-button @click="confirmSub">确认</el-button>
     <h3 class="title">新建父地点</h3>
-    <p>先选择父地点所属校区，再填写父地点名称</p>
+    <p class="normal">先选择父地点所属校区，再填写父地点名称。删除父地点需前往地点列表</p>
     <div style="margin-bottom:8px" class="school-picker">
       <el-radio v-model="radio" label="1">沙河校区</el-radio>
       <el-radio v-model="radio" label="0">清水河校区</el-radio>
@@ -189,6 +189,7 @@ export default {
 #edit {
   margin: 0;
   margin-left: 250px;
+  padding-top: 20px;
 }
 .title {
   color: #303133;
