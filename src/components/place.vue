@@ -124,7 +124,10 @@ export default {
         })
         .then((res) => {
           if (res.data.code == 200) {
-            this.$message("修改成功！");
+            this.$message({
+              message:"修改成功",
+              offset:80
+            });
             this.dialogVisible2 = false;
             this.schoolRadioChange();
           } else {
@@ -145,7 +148,10 @@ export default {
         })
         .then((res) => {
           if (res.data.code == 200) {
-            this.$message("修改成功！");
+            this.$message({
+              message:"修改成功",
+              offset:80
+            });
             this.dialogVisible2 = false;
             this.schoolRadioChange();
           } else {
@@ -196,7 +202,10 @@ export default {
         })
         .then((res) => {
           if (res.data.code == 200) {
-            this.$message("删除成功！");
+            this.$message({
+              message:"删除成功",
+              offset:80
+            });
             this.dialogVisible = false;
             this.schoolRadioChange();
           } else {
@@ -217,7 +226,10 @@ export default {
         })
         .then((res) => {
           if (res.data.code == 200) {
-            this.$message("删除成功！");
+            this.$message({
+              message:"删除成功",
+              offset:80
+            });
             this.dialogVisible = false;
             this.schoolRadioChange();
           } else {

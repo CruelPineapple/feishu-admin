@@ -153,7 +153,10 @@ export default {
         })
         .then((res) => {
           if (res.data.code == 200) {
-            this.$message("新建地址成功");
+            this.$message({
+              message:"新建地址成功",
+              offset:80
+            });
             this.getPicker();
           } else {
             this.$notify({
@@ -174,7 +177,10 @@ export default {
         })
         .then((res) => {
           if (res.data.code == 200) {
-            this.$message("新建地址成功");
+            this.$message({
+              message:"新建地址成功",
+              offset:80
+            });
             this.getPicker();
           } else {
             this.$notify({

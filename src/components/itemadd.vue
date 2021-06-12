@@ -53,7 +53,10 @@ export default {
         })
         .then((res) => {
           if (res.data.code == 200) {
-            this.$message("新建物品种类成功");
+            this.$message({
+              message:"新建物品种类成功",
+              offset:80
+            });
             this.getPicker();
           } else {
             this.$notify({
@@ -74,7 +77,10 @@ export default {
         })
         .then((res) => {
           if (res.data.code == 200) {
-            this.$message("新建物品成功");
+            this.$message({
+              message:"新建物品成功",
+              offset:80
+            });
             this.getPicker();
           } else {
             this.$notify({
