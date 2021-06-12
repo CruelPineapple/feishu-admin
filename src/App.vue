@@ -71,6 +71,7 @@
           </el-submenu>
         </el-menu>
       </div>
+      <auth v-if="currentShow=='3'"></auth>
       <itemadd v-if="currentShow=='4-2'"></itemadd>
       <itemlist v-if="currentShow=='4-1'"></itemlist>
       <place v-if="currentShow == '2-1'"></place>
@@ -90,6 +91,7 @@ import match from "./components/match";
 import edit from "./components/edit";
 import itemlist from "./components/itemlist";
 import itemadd from "./components/itemadd";
+import auth from "./components/auth"
 
 export default {
   mounted() {
@@ -104,69 +106,17 @@ export default {
       });
   },
   name: "App",
-  components: { place, found, lost, match, edit,itemlist,itemadd },
+  components: { place, found, lost, match, edit,itemlist,itemadd,auth },
   data() {
     return {
       userName: "",
       avatarUrl: "",
       activeIndex: "1",
       activeIndex2: "1",
-      currentShow: "2-1",
+      currentShow: "1-3",
     };
   },
   methods: {
-    // transferPlace: function (data) {
-    //   // let options=[];
-    //   let lastVal1 = undefined;
-    //   let lastVal2 = undefined;
-    //   let lastVal3 = undefined;
-    //   let val1Arr = [];
-    //   let val2Arr = [];
-    //   let val3Arr = [];
-    //   data.forEach((element) => {
-    //     let value1 = element.Key[0];
-    //     if (value1 != lastVal1) {
-    //       val1Arr.push(value1);
-    //       lastVal1 = value1;
-    //     }
-    //     let value2 = element.Key[1];
-    //     if (value2 != lastVal2) {
-    //       val2Arr.push(value2);
-    //       lastVal2 = value2;
-    //     }
-    //     let value3 = element.Key[2];
-    //     if (value3 != lastVal3) {
-    //       val3Arr.push(value3);
-    //       lastVal3 = value3;
-    //     }
-    //     // let label1=element.Campus;
-    //     // let label2=element.Place;
-    //     // let label3=element.SubPlace;
-    //   });
-    //   let pos0 = [];
-    //   let idx = val3Arr.indexOf(0);
-    //   while (idx != -1) {
-    //     pos0.push(idx);
-    //     idx = val3Arr.indexOf(0, idx + 1);
-    //   }
-    //   let obj = {};
-    //   for (let i = 0; i < pos0.length; i++) {
-    //     obj["arr" + i] = val3Arr.slice(pos0[i], pos0[i + 1]);
-    //   }
-
-    //   let totalCnt=0;
-    //   for(let i=0;i<Object.keys(obj).length;i++){
-    //     for(let j=0;j<obj["arr"+i].length;j++){
-
-    //     }
-    //   }
-
-    //   console.log(val1Arr);
-    //   console.log(val2Arr);
-    //   console.log(val3Arr);
-    //   console.log("pos0", pos0);
-    //   console.log("obj", obj);
-    // },
     handleSelect(key, keyPath) {
       console.log(key, keyPath);
       this.currentShow = key;
