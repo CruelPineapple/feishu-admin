@@ -1,6 +1,6 @@
 <template>
   <div id="edit">
-    <h3 class="title">新增子地点</h3>
+    <h3 style="margin-top:0" class="title">新增子地点</h3>
     <p class="normal">先选择一个父地点，再填写子地点名称。删除子地点需前往地点列表</p>
     <el-cascader
       v-model="pickerValue"
@@ -192,6 +192,7 @@ export default {
 }
 .title {
   color: #303133;
+
 }
 .normal {
   color: #606266;
