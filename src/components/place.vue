@@ -1,15 +1,40 @@
 <template>
   <div id="place">
-    <el-dialog :show-close="false" title="提示" :visible="dialogVisible" width="30%">
+    <el-dialog
+      :show-close="false"
+      title="提示"
+      :visible="dialogVisible"
+      width="30%"
+    >
       <span>请选择删除方式</span>
       <span slot="footer" class="dialog-footer">
-        <el-button type="danger" @click="subDel(delBuff)"
-          >删除子地点</el-button
-        >
+        <el-button type="danger" @click="subDel(delBuff)">删除子地点</el-button>
         <el-button type="danger" @click="mainDel(delBuff)"
           >删除父地点</el-button
         >
         <el-button @click="dialogVisible = false">取消</el-button>
+      </span>
+    </el-dialog>
+    <el-dialog
+      :show-close="false"
+      title="提示"
+      :visible="dialogVisible2"
+      width="30%"
+    >
+      <span>请选择修改目标</span>
+      <el-input
+        style="margin-top: 14px"
+        v-model="editName"
+        placeholder="新名称"
+      ></el-input>
+      <span slot="footer" class="dialog-footer">
+        <el-button type="danger" @click="subEdit(editBuff)"
+          >修改物品名称</el-button
+        >
+        <el-button type="danger" @click="mainEdit(editBuff)"
+          >修改大类物品</el-button
+        >
+        <el-button @click="dialogVisible2 = false">取消</el-button>
       </span>
     </el-dialog>
     <div class="school-picker">
@@ -39,9 +64,9 @@
         </el-table-column>
         <el-table-column label="操作">
           <template slot-scope="scope">
-            <!-- <el-button size="mini" @click="handleEdit(scope.$index, scope.row)"
+            <el-button size="mini" @click="handleEdit(scope.$index, scope.row)"
               >编辑</el-button
-            > -->
+            >
             <el-button
               size="mini"
               type="danger"
@@ -80,12 +105,57 @@ export default {
   data() {
     return {
       radio: "1",
+      editName: "",
+      dialogVisible2: false,
+      editBuff: undefined,
       dialogVisible: false,
-      delBuff:undefined,
+      delBuff: undefined,
       tableData: [],
     };
   },
   methods: {
+    subEdit: function (row) {
+      this.$axios
+        .get("https://www.fengzigeng.com/api/management/editplacesmall", {
+          params: {
+            key: row.Key,
+            name: this.editName,
+          },
+        })
+        .then((res) => {
+          if (res.data.code == 200) {
+            this.$message("修改成功！");
+            this.dialogVisible2 = false;
+            this.schoolRadioChange();
+          } else {
+            this.$notify({
+              title: "修改失败",
+              message: res.data.msg,
+            });
+          }
+        });
+    },
+    mainEdit: function (row) {
+      this.$axios
+        .get("https://www.fengzigeng.com/api/management/editplacebig", {
+          params: {
+            big_key: row.Key,
+            name: this.editName,
+          },
+        })
+        .then((res) => {
+          if (res.data.code == 200) {
+            this.$message("修改成功！");
+            this.dialogVisible2 = false;
+            this.schoolRadioChange();
+          } else {
+            this.$notify({
+              title: "修改失败",
+              message: res.data.msg,
+            });
+          }
+        });
+    },
     schoolRadioChange: function () {
       console.log(this.radio);
       this.$axios
@@ -108,11 +178,13 @@ export default {
     },
     handleEdit(index, row) {
       console.log(index, row);
+      this.dialogVisible2 = true;
+      this.editBuff = row;
     },
     handleDelete(index, row) {
       console.log(index, row);
       this.dialogVisible = true;
-      this.delBuff=row;
+      this.delBuff = row;
     },
     subDel: function (row) {
       this.$axios
