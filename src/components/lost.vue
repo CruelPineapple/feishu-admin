@@ -59,6 +59,7 @@ export default {
             this.$notify.error({
               title: "错误" + res.data.code,
               message: res.data.msg,
+              offset: 100
             });
           }
         });
@@ -72,22 +73,7 @@ export default {
   },
   data() {
     return {
-      tableData: [
-        {
-          ID: 2,
-          Name: "邓雯月",
-          Student_Teacher_Id: "2019091620026",
-          Moblie: "+8618843420822",
-          Avatar:
-            "https://s1-fs.pstatp.com/static-resource/v1/258f7d52-0a2a-4225-ae94-8a0de663b46g~?image_size=72x72&cut_type=&quality=&format=image&sticker_format=.webp",
-          SubType: "雨伞",
-          Place1: "教学楼-第二教学楼",
-          Place2: "教学楼-第二教学楼",
-          Place3: "教学楼-第二教学楼",
-          LostDate: "2021-05-19",
-          LostTimeSession: "morning",
-        },
-      ],
+      tableData: [],
     };
   },
 };

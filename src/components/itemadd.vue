@@ -59,6 +59,7 @@ export default {
             this.$notify({
               title: "新建物品种类失败",
               message: res.data.msg,
+              offset: 100
             });
           }
         });
@@ -80,6 +81,7 @@ export default {
               title: "新建物品失败",
               message: res.data.msg,
               duration: 5,
+              offset: 100
             });
           }
         });
@@ -94,6 +96,7 @@ export default {
             this.$notify({
               title: "获取物品类型失败",
               message: res.data.msg,
+              offset: 100
             });
           }
         });

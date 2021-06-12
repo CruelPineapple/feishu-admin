@@ -322,6 +322,7 @@ export default {
             this.$notify({
               title: "错误",
               message: "获取列表失败" + res.data.msg,
+              offset: 100
             });
           }
         });
@@ -353,6 +354,7 @@ export default {
             this.$notify({
               title: "修改失败",
               message: res.data.msg,
+              offset: 100
             });
           }
         });
@@ -374,6 +376,7 @@ export default {
             this.$notify({
               title: "修改失败",
               message: res.data.msg,
+              offset: 100
             });
           }
         });
@@ -394,6 +397,7 @@ export default {
             this.$notify({
               title: "删除失败",
               message: res.data.msg,
+              offset: 100
             });
           }
         });
@@ -414,6 +418,7 @@ export default {
             this.$notify({
               title: "删除失败",
               message: res.data.msg,
+              offset: 100
             });
           }
         });

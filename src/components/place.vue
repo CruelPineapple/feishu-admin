@@ -172,6 +172,7 @@ export default {
               title: "错误",
               dangerouslyUseHTMLString: true,
               message: `<a href= "https://www.fengzigeng.com/api/weblogin">点此重新登录</a>`,
+              offset: 100
             });
           }
         });
@@ -202,6 +203,7 @@ export default {
             this.$notify({
               title: "删除失败",
               message: res.data.msg,
+              offset: 100
             });
           }
         });
@@ -222,6 +224,7 @@ export default {
             this.$notify({
               title: "删除失败",
               message: res.data.msg,
+              offset: 100
             });
           }
         });

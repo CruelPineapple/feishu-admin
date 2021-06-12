@@ -42,6 +42,7 @@ export default {
             title: "错误",
             message: "获取父地点失败",
             duration: 5,
+            offset: 100
           });
         }
       });
@@ -133,6 +134,7 @@ export default {
             title: "错误",
             message: "获取父地点失败",
             duration: 5,
+            offset: 100
           });
         }
       });
@@ -157,6 +159,7 @@ export default {
             this.$notify({
               title: "新建地址失败",
               message: res.data.msg,
+              offset: 100
             });
           }
         });
@@ -178,6 +181,7 @@ export default {
               title: "新建地址失败",
               message: res.data.msg,
               duration: 5,
+              offset: 100
             });
           }
         });

@@ -68,6 +68,7 @@ export default {
             this.$notify.error({
               title: "错误" + res.data.code,
               message: res.data.msg,
+              offset: 100
             });
           }
         });
@@ -81,92 +82,7 @@ export default {
   },
   data() {
     return {
-      tableData: [
-        {
-          ID: 4,
-          Validity: true,
-          SubType: "雨伞",
-          Name: "冯梓耕",
-          Student_Teacher_Id: "2019091201002",
-          Moblie: "+8613546519806",
-          Avatar:
-            "https://s3-fs.pstatp.com/static-resource/v1/2ed0efbc-72f8-45da-9c93-9c4468f2e2fg~?image_size=72x72&cut_type=&quality=&format=image&sticker_format=.webp",
-          Campus: "清水河校区",
-          Place: "教学楼-品学楼A区",
-          PlaceDetail: "品a101中间第四排",
-          Image:
-            "https://www.fengzigeng.com/api/image?name=b7ead0b3638441a7388ffb69d59d1984.jpg",
-          ImageList:
-            "https://www.fengzigeng.com/api/image?name=b7ead0b3638441a7388ffb69d59d1984.jpg",
-          FoundDate: "2021-05-20",
-          FoundTime: "21:12",
-          Info: "一把天堂伞",
-          AdditionalInfo: "",
-        },
-        {
-          ID: 8,
-          Validity: true,
-          SubType: "手机",
-          Name: "李尚哲",
-          Student_Teacher_Id: "2019091601021",
-          Moblie: "+8615976885032",
-          Avatar:
-            "https://s1-fs.pstatp.com/static-resource/v1/32503907-02d1-40d0-9d45-b179c66f9c3g~?image_size=72x72&cut_type=&quality=&format=image&sticker_format=.webp",
-          Campus: "沙河校区",
-          Place: "运动场所-体育馆",
-          PlaceDetail: "测试地点",
-          Image:
-            "https://www.fengzigeng.com/api/image?name=5649cc3937fc2e56b2f28ed9887de9cd.jpg",
-          ImageList:
-            "https://www.fengzigeng.com/api/image?name=5649cc3937fc2e56b2f28ed9887de9cd.jpg",
-          FoundDate: "2021-06-06",
-          FoundTime: "16:34",
-          Info: "测试手机",
-          AdditionalInfo: "没啥补充的",
-        },
-        {
-          ID: 9,
-          Validity: true,
-          SubType: "耳机",
-          Name: "李尚哲",
-          Student_Teacher_Id: "2019091601021",
-          Moblie: "+8615976885032",
-          Avatar:
-            "https://s1-fs.pstatp.com/static-resource/v1/32503907-02d1-40d0-9d45-b179c66f9c3g~?image_size=72x72&cut_type=&quality=&format=image&sticker_format=.webp",
-          Campus: "沙河校区",
-          Place: "食堂-阳光餐厅",
-          PlaceDetail: "测试地点",
-          Image:
-            "https://www.fengzigeng.com/api/image?name=c00dadb1064e7c853f2a41279b8cf9fa.jpg",
-          ImageList:
-            "https://www.fengzigeng.com/api/image?name=c00dadb1064e7c853f2a41279b8cf9fa.jpg",
-          FoundDate: "2021-06-06",
-          FoundTime: "16:38",
-          Info: "测试耳机",
-          AdditionalInfo: "",
-        },
-        {
-          ID: 10,
-          Validity: true,
-          SubType: "笔袋",
-          Name: "李尚哲",
-          Student_Teacher_Id: "2019091601021",
-          Moblie: "+8615976885032",
-          Avatar:
-            "https://s1-fs.pstatp.com/static-resource/v1/32503907-02d1-40d0-9d45-b179c66f9c3g~?image_size=72x72&cut_type=&quality=&format=image&sticker_format=.webp",
-          Campus: "沙河校区",
-          Place: "其它-图书馆",
-          PlaceDetail: "桌子上",
-          Image:
-            "https://www.fengzigeng.com/api/image?name=5212674c95eacc7b80f7c698c6cadb02.jpg",
-          ImageList:
-            "https://www.fengzigeng.com/api/image?name=5212674c95eacc7b80f7c698c6cadb02.jpg",
-          FoundDate: "2021-06-06",
-          FoundTime: "16:39",
-          Info: "测试笔袋",
-          AdditionalInfo: "",
-        },
-      ],
+      tableData: [],
     };
   },
 };
