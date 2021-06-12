@@ -76,16 +76,7 @@ export default {
           value: "0",
         },
       ],
-      tableData: [
-        {
-          Name: "冯梓耕",
-          UserId: "2019091201002",
-          OpenId: "ou_273dbf68377bc685de3dd11c6102f879",
-          Mobile: "+8613546519806",
-          Avatar:
-            "https://s1-fs.pstatp.com/static-resource/v1/2ed0efbc-72f8-45da-9c93-9c4468f2e2fg~?image_size=72x72&cut_type=&quality=&format=image&sticker_format=.webp",
-        },
-      ],
+      tableData: [],
     };
   },
   methods: {
