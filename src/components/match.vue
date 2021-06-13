@@ -72,11 +72,20 @@ export default {
           if (res.data.code == 200) {
             this.tableData = res.data.data;
           } else {
-            this.$notify.error({
-              title: "错误" + res.data.code,
-              message: res.data.msg,
-              offset: 100
-            });
+            if (res.data.code == 4003) {
+              this.$notify.error({
+                title: "错误",
+                dangerouslyUseHTMLString: true,
+                message: `<a href= "https://www.fengzigeng.com/api/weblogin">点此重新登录</a>`,
+                offset: 100,
+              });
+            } else {
+              this.$notify.error({
+                title: "错误" + res.data.code,
+                message: res.data.msg,
+                offset: 100,
+              });
+            }
           }
         });
     },
