@@ -117,6 +117,7 @@ export default {
               offset: 80,
             });
             this.dialogVisible2 = false;
+            this.getList();
           } else {
             this.$notify({
               title: "设置失败",
@@ -138,7 +139,8 @@ export default {
               message: "设置成功！",
               offset: 80,
             });
-            this.dialogVisible2 = false
+            this.dialogVisible2 = false;
+            this.getList();
           } else {
             this.$notify({
               title: "设置失败",
