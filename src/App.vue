@@ -45,7 +45,7 @@
                 <span slot="title">地点列表</span>
               </el-menu-item>
               <el-menu-item index="2-2">
-                <span slot="title">地点修改</span>
+                <span slot="title">新增地点</span>
               </el-menu-item>
             </el-menu-item-group>
           </el-submenu>
@@ -73,7 +73,7 @@
             </template>
             <el-menu-item-group>
               <el-menu-item index="4-1">
-                <span slot="title">所有类型</span>
+                <span slot="title">类型列表</span>
               </el-menu-item>
               <el-menu-item index="4-2">
                 <span slot="title">增加类型</span>
