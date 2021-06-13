@@ -81,9 +81,16 @@ export default {
   },
   methods: {
     submit: function () {
-      if(this.authVal==1){
+      if (!this.currentRow) {
+        this.$message({
+          message: "尚未选择用户!",
+          offset: 80,
+        });
+        return;
+      }
+      if (this.authVal == 1) {
         this.setPlaceAd();
-      }else{
+      } else {
         this.setNormalAd();
       }
     },
@@ -110,13 +117,15 @@ export default {
           }
         });
     },
-    setPlaceAd:function(){
-      this.$axios.get("https://www.fengzigeng.com/api/management/setPlaceAdmin",{
-        params:{
-          open_id:this.currentRow.OpenId,
-          place_key:this.placeVal[2]
-        }
-      }).then((res)=>{
+    setPlaceAd: function () {
+      this.$axios
+        .get("https://www.fengzigeng.com/api/management/setPlaceAdmin", {
+          params: {
+            open_id: this.currentRow.OpenId,
+            place_key: this.placeVal[2],
+          },
+        })
+        .then((res) => {
           if (res.data.code == 200) {
             this.$message({
               message: "设置成功！",
@@ -129,7 +138,7 @@ export default {
               offset: 100,
             });
           }
-      })
+        });
     },
     getPlaceList: function () {
       this.$axios
